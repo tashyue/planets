@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/truss-app/static/css/main.557e207d.css",
-    "main.js": "/truss-app/static/js/main.3b805f15.js",
-    "static/js/787.7e0b23c5.chunk.js": "/truss-app/static/js/787.7e0b23c5.chunk.js",
+    "main.js": "/truss-app/static/js/main.6da99158.js",
+    "static/js/787.729471ac.chunk.js": "/truss-app/static/js/787.729471ac.chunk.js",
     "index.html": "/truss-app/index.html",
     "main.557e207d.css.map": "/truss-app/static/css/main.557e207d.css.map",
-    "main.3b805f15.js.map": "/truss-app/static/js/main.3b805f15.js.map",
-    "787.7e0b23c5.chunk.js.map": "/truss-app/static/js/787.7e0b23c5.chunk.js.map"
+    "main.6da99158.js.map": "/truss-app/static/js/main.6da99158.js.map",
+    "787.729471ac.chunk.js.map": "/truss-app/static/js/787.729471ac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.557e207d.css",
-    "static/js/main.3b805f15.js"
+    "static/js/main.6da99158.js"
   ]
 }
