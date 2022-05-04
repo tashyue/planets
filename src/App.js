@@ -67,14 +67,14 @@ function App() {
       </div>
   )
   return (
-    <>
+    <div className=' resp container-fluid'>
         <PlanetsTable planet={planet}/>
         <Pagination 
           goToNextPage={nextPageUrl ? goToNextPage : null}
           goToPrevPage={prevPageUrl ? goToPrevPage : null}
         />
        
-    </>
+    </div>
   );
 }
 

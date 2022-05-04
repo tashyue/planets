@@ -6,7 +6,7 @@ import PlanetRow from './PlanetRow'
 export default function PlanetsTable({planet}) {
 
   return (
-   <>
+  <div className='table-responsive'>
   <table className='table'>
     <thead>
       <tr key="name">
@@ -22,7 +22,7 @@ export default function PlanetsTable({planet}) {
     <PlanetRow planet={planet}/>
     </tbody>
   </table>
-    </>
+    </div>
   )
 }
 
