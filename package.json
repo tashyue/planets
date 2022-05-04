@@ -1,6 +1,6 @@
 {
-  "homepage": "http://tashyue.github.io/.",
-  "name": "truss-app",
+  "homepage": "http://github.io/planets/",
+  "name": "planets",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

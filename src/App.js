@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import PlanetsTable from './components/PlanetsTable';
 import Pagination from './components/Pagination';
-import PlanetInfo from './components/PlanetInfo';
+
 
 function App() {
 
@@ -13,32 +13,34 @@ function App() {
   const [loading, setLoading] = useState(true)
 
 
-  const [status, setStatus] = useState({})
+  const [status, setStatus] = useState()
 
 
-  useEffect(() => {
-    setLoading(true)
-    axios.get(currentPageUrl)
-    .catch((e) => {
-      setLoading(false)
-      let fetchStatus = {
-        message: "Data not Fetched",
-        ok: false
+    useEffect(() => {
+      setLoading(true)
+      
+      
+      async function fetchPlanetData() {
+        try{
+        const res = await axios.get(currentPageUrl);
+        setLoading(false)
+        setNextPageUrl(res.data.next)
+        setPrevPageUrl(res.data.previous)
+        setPlanet(res.data.results.sort((a, b)=>{return a.name > b.name ? 1 : -1})
+        .map((p) => p))
+        setStatus(true)
+        }
+       catch (err) {
+        setStatus(false)
+        setLoading(false)
+        
+        }   
       }
-      setStatus(fetchStatus)
-    })
-    .then(res => {
-    setLoading(false)
-    setNextPageUrl(res.data.next)
-    setPrevPageUrl(res.data.previous)
-    setPlanet(res.data.results.sort((a, b)=>{return a.name > b.name ? 1 : -1})
-    .map((p) => p))
-    setStatus({
-      message: "Data Successfuly Fetched",
-      ok: true
-    })
-  })
-  }, [currentPageUrl])
+
+    fetchPlanetData()
+   
+           
+    } , [currentPageUrl])
 
   
 
@@ -50,7 +52,6 @@ function App() {
     setCurrentPageUrl(prevPageUrl)
   }
 
-  
 
   if(loading) {
     return (
@@ -60,7 +61,7 @@ function App() {
     
     )
   }
-  else if(status.ok === false) return (
+ else if(status === false) return (
     <div className='centered'>
         <h1>Data load failure</h1>
       </div>
@@ -72,7 +73,7 @@ function App() {
           goToNextPage={nextPageUrl ? goToNextPage : null}
           goToPrevPage={prevPageUrl ? goToPrevPage : null}
         />
-        <PlanetInfo/>
+       
     </>
   );
 }
