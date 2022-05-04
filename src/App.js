@@ -50,7 +50,7 @@ function App() {
     setCurrentPageUrl(prevPageUrl)
   }
 
-  console.log(planet)
+  
 
   if(loading) {
     return (
